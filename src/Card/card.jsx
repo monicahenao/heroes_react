@@ -4,8 +4,10 @@ export const Card = (props) => {
   const heroe  = props.heroe;
   return (
     <div className="card">
-      <ImageProfile srcImage={heroe._picture} placeText={heroe._position} ></ImageProfile>
+      <ImageProfile srcImage={heroe._picture} placeText={props.position} ></ImageProfile>
       <TitleTex nickName={heroe._nickname} name={heroe._name} height={heroe._height} ></TitleTex>
     </div>
   );
 };
+
+

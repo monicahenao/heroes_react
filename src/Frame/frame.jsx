@@ -15,8 +15,9 @@ export const Frame = () => {
   }, []);
 
   return (
+    
     <div className="frame">
-      {heroe.map ((h, index)=> <Card  position={index+1}  key={index} heroe={{ _picture: h._picture, _position: index+3}}></Card>)}
+      {heroe.map ((h, index)=> <Card  position={index+1}  key={index} heroe={h}></Card>)}
     
     </div>
   );
