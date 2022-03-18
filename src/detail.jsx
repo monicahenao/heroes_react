@@ -1,26 +1,35 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import {editHeroe,deleteHeroe } from './features/heroe/heroeSlice';
+
+
 
 export const Detail = (props) => {
   const heroe = useSelector((state) => state.heroe.heroes);
+
+  const dispatch = useDispatch();
+
+
   const { heroeId } = useParams();
 
   const [isEditing, setIsEditing] = useState(false);
   const goToEdit = () => {
     setIsEditing(true);
   };
+  const [heroeCall, setHeroeCall] = useState(heroe[parseInt(heroeId)]);
 
   const save = () => {
     setIsEditing(false);
+    dispatch(editHeroe({index: heroeId, heroe: heroeCall}));
   };
 
-  const deleteHeroe = () => {
-
+  const deleteHeroes = () => {
+    dispatch(deleteHeroe({index: heroeId}));
     goToMain();
+
   };
 
-  const [heroeCall, setHeroeCall] = useState(heroe[parseInt(heroeId)]);
 
   const navigate = useNavigate();
   const goToMain = () => {
@@ -53,7 +62,7 @@ export const Detail = (props) => {
           ) : (
             <>
               <button onClick={goToEdit}>Editar</button>
-              <button onClick={deleteHeroe}>Eliminar</button>
+              <button onClick={deleteHeroes}>Eliminar</button>
               <button className="choice button" onClick={goToMain}>
                 Regresar
               </button>

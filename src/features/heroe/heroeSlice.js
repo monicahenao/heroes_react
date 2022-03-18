@@ -61,24 +61,30 @@ export const counterSlice = createSlice({
       }
     ]
   },
-  // reducers: {
-  //   increment: state => {
-  //     // Redux Toolkit allows us to write "mutating" logic in reducers. It
-  //     // doesn't actually mutate the state because it uses the Immer library,
-  //     // which detects changes to a "draft state" and produces a brand new
-  //     // immutable state based off those changes
-  //     state.value += 1
-  //   },
-  //   decrement: state => {
-  //     state.value -= 1
-  //   },
-  //   incrementByAmount: (state, action) => {
-  //     state.value += action.payload
-  //   }
-  // }
+  reducers: {
+    editHeroe: (state,  action) => {
+      const {heroe, index} = action.payload;
+
+      const newHeroes = [ ...state.heroes];
+      newHeroes[index] = {...heroe};
+
+
+
+      return { ...state, heroes: newHeroes }
+    },
+    deleteHeroe: (state, action) => {
+      const {index: indexId} = action.payload;
+
+      const newDeleteHeroe = state.heroes.filter((heroe,index )=> index != indexId)
+    
+
+      return {...state, heroes: newDeleteHeroe}
+
+    }
+  }
 })
 
-// Action creators are generated for each case reducer function
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { editHeroe, deleteHeroe } = counterSlice.actions
+
 
 export default counterSlice.reducer
