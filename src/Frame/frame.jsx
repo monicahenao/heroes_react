@@ -8,6 +8,7 @@ const heroe = useSelector ((state) => state.heroe.heroes)
 
 
 
+
   /*const [heroe, setHeroe] = useState([]);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const heroe = useSelector ((state) => state.heroe.heroes)
     
     <div className="frame">
     
-      {heroe.map ((h, index)=> <Card  position={index+1}  key={index} heroe={h}></Card>)}
+      {heroe.map ((h, index)=> <Card  position={index}  key={index} heroe={h}></Card>)}
     
     </div>
   );

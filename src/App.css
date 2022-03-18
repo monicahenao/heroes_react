@@ -5,7 +5,13 @@
   url("./assets/espressodolce-webfont.woff2") format("woff2")
 }
 
-body{
+@font-face {
+  font-family: Bungee;
+  src: url("./assets/BungeeShade-Regular.ttf");
+
+}
+
+body, button{
   font-family: 'EspressoDolce', Arial, sans-serif;
   font-weight:normal;
   font-style:normal;
@@ -19,7 +25,8 @@ body{
   justify-content: center;
   padding: 100px 50px 100px 50px;
   background: url(./assets/allavengers.jpg) no-repeat center left fixed;
-  background-size: cover;
+  background-size:cover;
+  
 
   
 }
@@ -97,6 +104,8 @@ body{
   justify-content: center;
   flex-direction: column;
   padding-left: 5%;
+  font-size: 16px;
+
 
 }
 
@@ -108,5 +117,14 @@ body{
 .titleText > span{
   color: #978f8f;
   
+}
+
+.button-card{
+  background: none;
+    border: none;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 

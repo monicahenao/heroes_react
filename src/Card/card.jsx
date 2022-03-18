@@ -1,13 +1,28 @@
 import { ImageProfile } from "../ImageProfile/imageProfile";
 import { TitleTex } from "../TitleTex/tilteTex";
+import {  useNavigate } from "react-router-dom";
+
+
 export const Card = (props) => {
-  const heroe  = props.heroe;
+  const navigate = useNavigate();
+
+  const heroe = props.heroe;
+  const goToDetail = ()=> {
+    navigate('/detail/'+ props.position);
+  }
   return (
     <div className="card">
-      <ImageProfile srcImage={heroe._picture} placeText={props.position} ></ImageProfile>
-      <TitleTex nickName={heroe._nickname} name={heroe._name} height={heroe._height} ></TitleTex>
+      <button className="button-card" onClick={goToDetail} >
+        <ImageProfile
+          srcImage={heroe._picture}
+          placeText={props.position + 1}
+        ></ImageProfile>
+        <TitleTex
+          nickName={heroe._nickname}
+          name={heroe._name}
+          height={heroe._height}
+        ></TitleTex>
+      </button>
     </div>
   );
 };
-
-
